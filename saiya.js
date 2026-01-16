@@ -37,7 +37,7 @@ class Saiya {
     }
 
     /**
-     * Starts the playback of Saiya
+     * Starts the playback of Saiya if paused, pauses if playing
      */
     play() {
         if (this.element.parent == null) {
