@@ -277,7 +277,7 @@ Animations for controls might be added in the future, currently don't look good
     width: 100%;
     height: 48px;
     padding: 0 21px;
-    align-items: center;
+    align-items: flex-end;
     overflow: hidden;
     border-radius: 15px;
     position: absolute;
@@ -308,6 +308,15 @@ Animations for controls might be added in the future, currently don't look good
     overflow: hidden;
     position: relative;
     align-items: center;
+    transition: height 0.2s ease;
+}
+
+.saiya.paused .progressBarWrapper .progressBar {
+    height: 60%;
+}
+
+.saiya .progressBarWrapper:hover .progressBar {
+    height: 100%;
 }
 
 .progressBarWrapper .progressBar>input {
