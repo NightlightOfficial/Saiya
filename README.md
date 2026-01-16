@@ -16,7 +16,7 @@ Using Saiya is simple, you can do so in 2 lines!
 Import the Saiya JavaScript and CSS files (as you can see in examples/), initialize the class with a valid video path and finally, use the `Saiya.create()` function which returns the Saiya video player element which you can append to any div container you like.
 ### Methods
 **create()**
-- This method creates the video player element and prepars the class. It needs to be used before using any other method.
+- This method creates the video player element and prepares the class. It needs to be used before using any other method.
   
 **setType(type)**
 - Accepts 0 or 1 for the type of player to use. 0 is the default with the audio bar outside, 1 is with the audio bar inside.
