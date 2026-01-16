@@ -1,6 +1,52 @@
+:root {
+
+    /* Nightlight Color Palette (https://night-light.cz) */
+
+    /* Gradients */
+
+    --Gradient-Gradient-TL: linear-gradient(159.03deg, var(--Primary-Primary-500) 0%, var(--Secondary-Secondary-500) 100%);
+
+    /* New design colors */
+    --Neutral-Neutral-100: #0D0910;
+    --Neutral-Neutral-200: #18111E;
+    --Neutral-Neutral-300: #23192C;
+    --Neutral-Neutral-400: #2E213A;
+    --Neutral-Neutral-500: #392948;
+    --Neutral-Neutral-600: #423054;
+    --Neutral-Neutral-700: #977AB3;
+    --Neutral-Neutral-800: #AE98C4;
+    --Neutral-Neutral-900: #C5B5D5;
+    --Neutral-Neutral-1000: #DCD3E6;
+    --Neutral-Neutral-1100: #F3F0F7;
+
+    --Primary-Primary-100: #140319;
+    --Primary-Primary-200: #3C094C;
+    --Primary-Primary-300: #650F7F;
+    --Primary-Primary-400: #8D15B1;
+    --Primary-Primary-500: #B51BE4;
+    --Primary-Primary-600: #C64EEA;
+    --Primary-Primary-700: #977AB3;
+    --Primary-Primary-800: #E6B3F6;
+    --Primary-Primary-900: #F7E6FC;
+
+    --Secondary-Secondary-100: #0E031A;
+    --Secondary-Secondary-200: #2B084D;
+    --Secondary-Secondary-300: #480D80;
+    --Secondary-Secondary-400: #6413B4;
+    --Secondary-Secondary-500: #8118E7;
+    --Secondary-Secondary-600: #9D4BEC;
+    --Secondary-Secondary-700: #B97FF2;
+    --Secondary-Secondary-800: #D5B2F7;
+    --Secondary-Secondary-900: #F1E5FC;
+
+    --Nightlight: #ae1adb;
+
+}
+
 .saiya {
     display: flex;
     width: 100%;
+    height: 100%;
     position: relative;
     max-width: 100%;
     max-height: 100%;

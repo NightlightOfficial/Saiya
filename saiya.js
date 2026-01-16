@@ -9,7 +9,7 @@ class Saiya {
     // How many times the video has attempted to fix itself
     refreshAttempts = 0;
 
-    // The structure of the HTML element of the Video Player
+    // The structure of the HTML element of Saiya
     element = {
         locationNode: null,
         parent: null,
@@ -29,7 +29,7 @@ class Saiya {
     fullscreenHandler = null;
 
     /**
-     * Initializes the Video Player class with the video source URL specified
+     * Initializes Saiya class with the video source URL specified
      * @param {string} videoSrc 
      */
     constructor(videoSrc) {
@@ -37,7 +37,7 @@ class Saiya {
     }
 
     /**
-     * Starts the playback of the Video Player
+     * Starts the playback of Saiya
      */
     play() {
         if (this.element.parent == null) {
@@ -60,11 +60,11 @@ class Saiya {
     }
 
     /**
-     * Pauses the playback of the Video Player
+     * Pauses the playback of Saiya
      */
     pause() {
         if (this.element.parent == null) {
-            throw new Error("Video Player hasn't been created yet.");
+            throw new Error("Saiya hasn't been created yet.");
         }
         this.element.video.pause();
         this.element.parent.classList.remove("paused");
@@ -76,7 +76,7 @@ class Saiya {
      */
     refresh() {
         if (this.element.parent == null) {
-            throw new Error("Video Player hasn't been created yet.");
+            throw new Error("Saiya hasn't been created yet.");
         }
         if (this.refreshAttempts >= 3) {
             console.warn("Too many refresh attempts, ignoring.");
@@ -91,7 +91,7 @@ class Saiya {
      */
     maximize() {
         if (this.element.parent == null) {
-            throw new Error("Video Player hasn't been created yet.");
+            throw new Error("Saiya hasn't been created yet.");
         }
         if (this.fullscreenHandler == null) {
             /*
@@ -104,7 +104,7 @@ class Saiya {
 
             this.element.locationNode = this.element.parent.parentNode;
 
-            //reappend video player and fullscreen - destroy on exit
+            //reappend Saiya and fullscreen - destroy on exit
             let maximizedVideoPlayer = document.createElement('div');
             maximizedVideoPlayer.style.display = "block";
             maximizedVideoPlayer.style.width = "100vw";
@@ -131,7 +131,7 @@ class Saiya {
      */
     mute() {
         if (this.element.parent == null) {
-            throw new Error("Video Player hasn't been created yet.");
+            throw new Error("Saiya hasn't been created yet.");
         }
 
         // Video volume doesnt match the audio bar input = muted
@@ -147,7 +147,7 @@ class Saiya {
     }
 
     /**
-     * Create a video player element with the specified source
+     * Create a Saiya element with the specified source
      * @returns {HTMLElement}
      */
     create() {
@@ -359,7 +359,7 @@ class Saiya {
     }
 
     /**
-     * Set the type of video player to use (0 - normal / 1 - collapsed)
+     * Set the type of Saiya to use (0 - normal / 1 - collapsed)
      * @param {int} type 
      */
     setType(type) {
