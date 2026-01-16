@@ -1,0 +1,462 @@
+.saiya {
+    display: flex;
+    width: 100%;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 25px;
+    justify-content: center;
+    border: 1.4px solid var(--Neutral-Neutral-400, #2E213A);
+    background: var(--Neutral-Neutral-300, #23192C);
+    --isMobile: 0;
+}
+
+.saiya.fullscreen {
+    height: 100%;
+    border-radius: 0;
+}
+.saiya.fullscreen video,
+.saiya.fullscreen .coverScreen {
+    border-radius: 0;
+}
+
+.saiya.fullscreen.paused .coverScreen {
+    backdrop-filter: brightness(100%) blur(0px) !important;
+}
+
+.saiya.visible .controlsContainer,
+.saiya.visible .sideBarWrapper,
+.saiya.visible .progressBarWrapper {
+    opacity: 1 !important;
+}
+
+.saiya.visible .control {
+    scale: 1 !important;
+}
+
+.saiya.hidden .controlsContainer,
+.saiya.hidden .sideBarWrapper,
+.saiya.hidden .progressBarWrapper {
+    opacity: 0 !important;
+}
+
+.saiya.hidden .coverScreen {
+    backdrop-filter: brightness(100%) blur(0px) !important;
+}
+
+.saiya .coverScreen {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 25px;
+    transition: backdrop-filter 0.2s;
+    backdrop-filter: brightness(100%) blur(0px);
+}
+
+.saiya.paused:hover .coverScreen {
+    backdrop-filter: brightness(70%) blur(5px);
+}
+
+.saiya.paused .coverScreen {
+    backdrop-filter: brightness(80%) blur(0px);
+}
+
+.saiya:hover .sideBarWrapper {
+    opacity: 1;
+}
+
+.saiya:hover .sideBarWrapper.collapsed {
+    opacity: 0;
+}
+
+.sideBarWrapper.collapsed:hover {
+    opacity: 1 !important;
+}
+
+.saiya video {
+    border-radius: 25px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.saiya .controlsContainer {
+    display: flex;
+    height: 81px;
+    width: 228px;
+    align-self: center;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.saiya.paused .controlsContainer {
+    opacity: 0;
+}
+
+.saiya.paused:hover .controlsContainer {
+    opacity: 1;
+}
+
+.saiya.paused>.controlsContainer .control {
+    animation-direction: normal;
+    scale: 1;
+    opacity: 1;
+}
+
+.controlsContainer:hover {
+    opacity: 1 !important;
+}
+
+.controlsContainer:hover>.playBtn {
+    scale: 1 !important;
+    transition-delay: 0ms;
+}
+
+.saiya .controlsContainer > .maxBtn .maximizeIcon {
+    display: block;
+}
+
+.saiya .controlsContainer > .maxBtn .minimizeIcon {
+    display: none;
+}
+
+.saiya.fullscreen .controlsContainer > .maxBtn .maximizeIcon {
+    display: none;
+}
+
+.saiya.fullscreen .controlsContainer > .maxBtn .minimizeIcon {
+    display: block;
+}
+
+.controlsContainer .control {
+    display: flex;
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    border: 1.2px solid var(--Neutral-Neutral-600, #423054);
+    background-color: var(--Neutral-Neutral-500, #392948);
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation-timing-function: ease-in-out;
+    animation-duration: 300ms;
+    animation-direction: normal;
+    scale: 0.5;
+    opacity: 0;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.controlsContainer .control.active {
+    background-color: var(--Primary-Primary-400);
+}
+
+.controlsContainer .control:active {
+    scale: 0.9 !important;
+}
+
+/*
+Animations for controls might be added in the future, currently don't look good
+
+.controlsContainer .control.maxBtn {
+    animation-name: controlsPopRight;
+}
+
+.controlsContainer .control.loopBtn {
+    animation-name: controlsPopLeft;
+}*/
+
+.controlsContainer .control.playBtn {
+    width: 81px;
+    height: 81px;
+    opacity: 1 !important;
+    z-index: 2 !important;
+}
+
+.saiya.paused .controlsContainer .control.playBtn {
+    transition-delay: 0ms;
+}
+
+.controlsContainer .control.playBtn .playingIcon {
+    display: block;
+}
+
+.controlsContainer .control.playBtn>.pausedIcon {
+    display: none;
+}
+
+.saiya.paused .controlsContainer .control.playBtn .playingIcon {
+    display: none;
+}
+
+.saiya.paused .controlsContainer .control.playBtn>.pausedIcon {
+    display: block;
+}
+
+@keyframes controlsPopRight {
+    0% {
+        translate: 0px 0px;
+    }
+
+    10% {
+        translate: 5px 0px;
+    }
+
+    100% {
+        translate: -50px 0px;
+    }
+}
+
+@keyframes controlsPopLeft {
+    0% {
+        translate: 0px 0px;
+    }
+
+    10% {
+        translate: -5px 0px;
+    }
+
+    100% {
+        translate: 50px 0px;
+    }
+}
+
+.saiya .progressBarWrapper {
+    display: flex;
+    width: 100%;
+    height: 48px;
+    padding: 0 21px;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 15px;
+    position: absolute;
+    bottom: 21px;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease;
+    opacity: 0;
+}
+
+.saiya.paused:hover .progressBarWrapper {
+    opacity: 1;
+}
+
+.saiya.paused .progressBarWrapper {
+    opacity: 0;
+}
+
+.saiya .progressBarWrapper:hover {
+    opacity: 1 !important;
+}
+
+.progressBarWrapper .progressBar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: var(--Neutral-Neutral-600, #423054);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+}
+
+.progressBarWrapper .progressBar>input {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    background: transparent;
+    outline: none;
+}
+
+.progressBarWrapper .progressBar input[type="range"]::-webkit-slider-thumb {
+    visibility: hidden;
+}
+
+
+.progressBarWrapper .progressBar input[type="range"]::-moz-range-thumb {
+    visibility: hidden;
+}
+
+.progressBarWrapper .progressBar>.inner {
+    display: block;
+    width: 0%;
+    height: 100%;
+    border-radius: 15px 0 0 15px;
+    background: var(--Primary-Primary-500);
+}
+
+/* Audio bar */
+
+.sideBarWrapper {
+    display: flex;
+    right: -46px;
+    position: absolute;
+    width: 44px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 39px 0;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sideBarWrapper.collapsed {
+    right: 12px;
+    padding: 15px 0 12%;
+}
+
+.sideBarWrapper .control>.muteIcon {
+    display: none;
+}
+
+.sideBarWrapper .control.muted>.muteIcon {
+    display: block;
+}
+
+.sideBarWrapper .control>.volumeIcon {
+    display: block;
+}
+
+.sideBarWrapper .control.muted>.volumeIcon {
+    display: none;
+}
+
+.saiya.paused .sideBarWrapper {
+    opacity: 0;
+}
+
+.saiya.paused:hover .sideBarWrapper {
+    opacity: 1;
+}
+
+.sideBarWrapper .control {
+    display: flex;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: 1.2px solid var(--Neutral-Neutral-600, #423054);
+    background: var(--Neutral-Neutral-500, #392948);
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.sideBarWrapper .audioBarWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 28px;
+    height: 100%;
+    rotate: 180deg;
+}
+
+.audioBarWrapper input[type="range"] {
+    appearance: none;
+    background: transparent;
+    outline: none;
+    writing-mode: vertical-rl;
+    position: absolute;
+    height: 100%;
+
+}
+
+.audioBarWrapper input[type="range"]::-webkit-slider-thumb {
+    opacity: 0;
+    background-color: var(--Neutral-Neutral-700);
+    appearance: none;
+    outline: none;
+    border: none;
+    transition: opacity 0.2s;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+}
+
+.audioBarWrapper input[type="range"]:hover>input[type="range"]::-webkit-slider-thumb {
+    opacity: 1;
+}
+
+
+.audioBarWrapper input[type="range"]::-moz-range-thumb {
+    opacity: 0;
+    background-color: var(--Neutral-Neutral-700);
+    appearance: none;
+    outline: none;
+    border: none;
+    transition: opacity 0.2s;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+}
+
+.audioBarWrapper input[type="range"]:hover::-moz-range-thumb {
+    opacity: 1;
+}
+
+
+.audioBarWrapper .audioBar {
+    border-radius: 5px;
+    background: var(--Neutral-Neutral-600, #423054);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    width: 6px;
+    height: 100%;
+    position: absolute;
+}
+
+.audioBarWrapper .audioBar>.inner {
+    background-color: var(--Secondary-Secondary-500);
+}
+
+@media screen and (max-width: 1100px) {
+
+    .saiya {
+        --isMobile: 1
+    }
+
+    .audioBarWrapper {
+        display: none !important;
+    }
+
+    .sideBarWrapper {
+        justify-content: flex-start;
+    }
+
+    .saiya .controlsContainer {
+        zoom: 0.9;
+    }
+
+    .saiya .controlsContainer {
+        opacity: 0;
+    }
+
+    .saiya.paused .controlsContainer {
+        opacity: 1;
+    }
+
+    .saiya .control {
+        display: none !important;
+    }
+
+    .saiya .control {
+        display: flex !important;
+    }
+
+    .saiya.paused .progressBarWrapper {
+        opacity: 0 !important;
+    }
+}

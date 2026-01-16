@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="saiya.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    #videoPlayerPlacement {
+        width: 500px;
+        height: 400px;
+    }
+</style>
+<body>
+    <div id="videoPlayerPlacement">
+
+    </div>
+</body>
+<script src="saiya.js"></script>
+<script>
+    let saiya = new Saiya("https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4");
+    document.getElementById('videoPlayerPlacement').appendChild(saiya);
+</script>
