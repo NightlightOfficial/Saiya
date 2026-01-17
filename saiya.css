@@ -2,11 +2,8 @@
 
     /* Nightlight Color Palette (https://night-light.cz) */
 
-    /* Gradients */
-
     --Gradient-Gradient-TL: linear-gradient(159.03deg, var(--Primary-Primary-500) 0%, var(--Secondary-Secondary-500) 100%);
 
-    /* New design colors */
     --Neutral-Neutral-100: #0D0910;
     --Neutral-Neutral-200: #18111E;
     --Neutral-Neutral-300: #23192C;
@@ -38,8 +35,6 @@
     --Secondary-Secondary-700: #B97FF2;
     --Secondary-Secondary-800: #D5B2F7;
     --Secondary-Secondary-900: #F1E5FC;
-
-    --Nightlight: #ae1adb;
 
 }
 
@@ -157,9 +152,10 @@
     opacity: 1 !important;
 }
 
-.controlsContainer:hover>.playBtn {
+.controlsContainer:hover .control {
     scale: 1 !important;
     transition-delay: 0ms;
+    opacity: 1 !important;
 }
 
 .saiya .controlsContainer > .maxBtn .maximizeIcon {
@@ -285,6 +281,7 @@ Animations for controls might be added in the future, currently don't look good
     box-sizing: border-box;
     transition: opacity 0.2s ease;
     opacity: 0;
+    z-index: 1;
 }
 
 .saiya.paused:hover .progressBarWrapper {
@@ -302,17 +299,13 @@ Animations for controls might be added in the future, currently don't look good
 .progressBarWrapper .progressBar {
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 60%;
     background: var(--Neutral-Neutral-600, #423054);
     border-radius: 15px;
     overflow: hidden;
     position: relative;
     align-items: center;
     transition: height 0.2s ease;
-}
-
-.saiya.paused .progressBarWrapper .progressBar {
-    height: 60%;
 }
 
 .saiya .progressBarWrapper:hover .progressBar {
@@ -440,7 +433,14 @@ Animations for controls might be added in the future, currently don't look good
 
 }
 
-.audioBarWrapper input[type="range"]:hover>input[type="range"]::-webkit-slider-thumb {
+.audioBarWrapper input[type="range"]::-webkit-slider-runnable-track {
+    width: 20px;
+    height: 100%;
+    background: transparent;
+}
+
+
+.audioBarWrapper input[type="range"]:hover::-webkit-slider-thumb {
     opacity: 1;
 }
 

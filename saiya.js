@@ -151,6 +151,29 @@ class Saiya {
      * @returns {HTMLElement}
      */
     create() {
+
+        // Temporary solution for referencing gradients for SVGs.
+        // If anyone can think of a better solution, please PR
+        let refGradient = document.getElementById('saiyaRefGradient');
+        if(!refGradient){
+            let refGradientEl = document.createElement('span');
+            refGradientEl.id = "saiyaRefGradient";
+            refGradientEl.innerHTML = `<svg width="0" height="0" style="position:absolute; pointer-events:none">
+            <defs>
+                <linearGradient id="pausedGradient" x1="0" y1="0" x2="20.4865" y2="49.6405" gradientUnits="userSpaceOnUse">
+                <stop stop-color="var(--Primary-Primary-500)"/>
+                <stop offset="1" stop-color="var(--Secondary-Secondary-500)"/>
+                </linearGradient>
+
+                <symbol id="pausedIcon" viewBox="0 0 39 42">
+                <path d="M35.7334 15.4404C40.0889 17.8636 40.0889 24.1364 35.7334 26.5596L9.43516 41.1905C5.2021 43.5456 -2.1167e-07 40.4803 0 35.6309L1.27726e-06 6.36908C1.48893e-06 1.51973 5.20209 -1.54555 9.43515 0.809499L35.7334 15.4404Z"
+                        fill="url(#pausedGradient)"/>
+                </symbol>
+            </defs>
+            </svg>`
+            document.body.prepend(refGradientEl);
+        }
+
         let mainElement = document.createElement('div');
         mainElement.className = 'saiya paused visible';
 
@@ -175,14 +198,8 @@ class Saiya {
         // controls
         let playBtn = document.createElement('a');
         playBtn.className = 'control playBtn';
-        playBtn.innerHTML = `<svg class="pausedIcon" width="39" height="42" viewBox="0 0 39 42" fill: var(--Gradient-Gradient-TL, linear-gradient(159deg, #B51BE4 0%, #8118E7 100%)); xmlns="http://www.w3.org/2000/svg">
-        <path d="M35.7334 15.4404C40.0889 17.8636 40.0889 24.1364 35.7334 26.5596L9.43516 41.1905C5.2021 43.5456 -2.1167e-07 40.4803 0 35.6309L1.27726e-06 6.36908C1.48893e-06 1.51973 5.20209 -1.54555 9.43515 0.809499L35.7334 15.4404Z" fill="url(#paint0_linear_294_82)"/>
-        <defs>
-            <linearGradient id="paint0_linear_294_82" x1="0" y1="0" x2="20.4865" y2="49.6405" gradientUnits="userSpaceOnUse">
-                <stop stop-color="var(--Primary-Primary-500)"/>
-                <stop offset="1" stop-color="var(--Secondary-Secondary-500)"/>
-            </linearGradient>
-        </defs>
+        playBtn.innerHTML = `<svg class="pausedIcon" width="39" height="42">
+            <use href="#pausedIcon"></use>
         </svg>
         <svg class="playingIcon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M3.33334 10C3.33334 6.85731 3.33334 5.28596 4.30965 4.30965C5.28596 3.33334 6.85731 3.33334 10 3.33334C13.1427 3.33334 14.714 3.33334 15.6904 4.30965C16.6667 5.28596 16.6667 6.85731 16.6667 10V30C16.6667 33.1427 16.6667 34.7141 15.6904 35.6904C14.714 36.6667 13.1427 36.6667 10 36.6667C6.85731 36.6667 5.28596 36.6667 4.30965 35.6904C3.33334 34.7141 3.33334 33.1427 3.33334 30V10Z" stroke="var(--Neutral-Neutral-800)" stroke-width="1.5"/>
