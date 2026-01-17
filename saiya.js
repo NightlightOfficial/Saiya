@@ -184,7 +184,7 @@ class Saiya {
         let coverScreen = document.createElement('div');
         coverScreen.className = 'coverScreen';
         coverScreen.addEventListener('click', () => {
-            if (getComputedStyle(mainElement).getPropertyValue('--isMobile') == 1) {
+            if (getComputedStyle(mainElement).getPropertyValue('--isMobile').trim() === '1') {
                 if (this.element.video.paused) {
                     this.element.parent.classList.toggle('hidden');
                 } else {
@@ -192,8 +192,6 @@ class Saiya {
                 }
             }
         });
-
-        mainElement.appendChild(coverScreen);
 
         // controls
         let playBtn = document.createElement('a');
@@ -353,6 +351,7 @@ class Saiya {
         sideBarWrapper.appendChild(audioBarWrapper);
 
         mainElement.appendChild(videoElement);
+        mainElement.appendChild(coverScreen);
 
         controlsContainer.appendChild(loopBtn);
         controlsContainer.appendChild(playBtn);
