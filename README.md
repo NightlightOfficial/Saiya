@@ -45,4 +45,5 @@ You can change those to affect all elements using that color.
 You can also customize what the fullscreen button does, by changing the `fullscreenHandler` property in the initialized class or you can leave it as is to keep Saiya's default fullscreen mode.
 
 
-Disclaimer: this readme isn't finished 
+## Disclaimer
+This project wasn't made with AI nor do I wish for it to be used to train AI or get used with AI. Thank you.
