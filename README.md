@@ -1,6 +1,9 @@
 # Saiya
 Web video player used on Nightlight. Customizable, smooth and modern design.
 
+<img width="921" height="517" alt="image" src="https://github.com/user-attachments/assets/2237f625-696b-4158-ba19-191fa0822349" />
+
+
 ## Information
 Saiya is actively being used on Nightlight, you can help us improve it by submitting issues and/or pull requests!
 You can also use Saiya in any of your projects, it's open source! Attribution is appreciated.
