@@ -189,7 +189,7 @@
     animation-duration: 300ms;
     animation-direction: normal;
     scale: 0.5;
-    opacity: 0;
+    opacity: 1;
     z-index: 0;
     cursor: pointer;
 }
@@ -271,6 +271,7 @@ Animations for controls might be added in the future, currently don't look good
 .saiya .progressBarWrapper {
     display: flex;
     width: 100%;
+    flex-direction: column;
     height: 48px;
     padding: 0 21px;
     align-items: flex-end;
@@ -279,9 +280,10 @@ Animations for controls might be added in the future, currently don't look good
     position: absolute;
     bottom: 21px;
     box-sizing: border-box;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, height 0.2s;
     opacity: 0;
     z-index: 1;
+    gap: 2px;
 }
 
 .saiya.paused:hover .progressBarWrapper {
@@ -294,6 +296,27 @@ Animations for controls might be added in the future, currently don't look good
 
 .saiya .progressBarWrapper:hover {
     opacity: 1 !important;
+    height: 59px;
+}
+
+.progressBarWrapper .stats {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+
+.progressBarWrapper .stats .time {
+    color: var(--Neutral-Neutral-1000);
+    font-family: Be Vietnam Pro;
+    font-weight: 500;
+    text-shadow: 0 0 6px var(--Neutral-Neutral-100);
+}
+
+.saiya.paused .progressBarWrapper .stats .time {
+    text-shadow: none;
 }
 
 .progressBarWrapper .progressBar {
@@ -501,10 +524,6 @@ Animations for controls might be added in the future, currently don't look good
 
     .saiya.paused .controlsContainer {
         opacity: 1;
-    }
-
-    .saiya .control {
-        display: none !important;
     }
 
     .saiya .control {
