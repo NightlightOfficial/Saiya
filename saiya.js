@@ -155,7 +155,7 @@ class Saiya {
         // Temporary solution for referencing gradients for SVGs.
         // If anyone can think of a better solution, please PR
         let refGradient = document.getElementById('saiyaRefGradient');
-        if(!refGradient){
+        if (!refGradient) {
             let refGradientEl = document.createElement('span');
             refGradientEl.id = "saiyaRefGradient";
             refGradientEl.innerHTML = `<svg width="0" height="0" style="position:absolute; pointer-events:none">
@@ -258,6 +258,20 @@ class Saiya {
         let progressBarWrapper = document.createElement('div');
         progressBarWrapper.className = 'progressBarWrapper';
 
+        let progressBarStats = document.createElement('div');
+        progressBarStats.className = 'stats';
+
+        let progressBarTimeCurrent = document.createElement('span');
+        progressBarTimeCurrent.innerText = '0:00';
+        progressBarTimeCurrent.className = 'time';
+
+        let progressBarTime = document.createElement('span');
+        progressBarTime.innerText = '0:00';
+        progressBarTime.className = 'time';
+
+        progressBarStats.appendChild(progressBarTimeCurrent);
+        progressBarStats.appendChild(progressBarTime);
+
         let progressBarInput = document.createElement('input');
         progressBarInput.type = 'range';
         progressBarInput.min = "0";
@@ -276,6 +290,11 @@ class Saiya {
         videoElement.addEventListener('canplay', () => {
             progressBarInput.max = videoElement.duration;
             this.isReadyToPlay = true;
+
+            let minutes = Math.floor(videoElement.duration / 60);
+            let seconds = Math.floor(videoElement.duration % 60);
+            let displaySeconds = seconds < 10 ? "0" + seconds : "" + seconds;
+            progressBarTime.innerText = minutes + ":" + displaySeconds;
         });
         videoElement.addEventListener('timeupdate', () => {
             if (!this.isReadyToPlay) return;
@@ -286,6 +305,11 @@ class Saiya {
             if (videoElement.currentTime == videoElement.duration) {
                 this.pause();
             }
+
+            let minutes = Math.floor(videoElement.currentTime / 60);
+            let seconds = Math.floor(videoElement.currentTime % 60);
+            let displaySeconds = seconds < 10 ? "0" + seconds : "" + seconds;
+            progressBarTimeCurrent.innerText = minutes + ":" + displaySeconds;
         });
         progressBarInput.addEventListener('input', () => {
             if (!this.isReadyToPlay) return;
@@ -357,6 +381,7 @@ class Saiya {
         controlsContainer.appendChild(playBtn);
         controlsContainer.appendChild(maximizeBtn);
 
+        progressBarWrapper.appendChild(progressBarStats);
         progressBarWrapper.appendChild(progressBar);
         progressBar.appendChild(progressBarInput);
         progressBar.appendChild(innerProgressBar);
